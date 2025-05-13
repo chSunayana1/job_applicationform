@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            zoom: 0.9;  /* Makes the entire form slightly smaller to fit without scrolling */
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 20px;
+            margin: 5px 0 10px 0;
+        }
+        
+        fieldset {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+        }
+        
+        legend {
+            font-weight: normal;
+            font-size: 13px;
+        }
+        
+        .form-group {
+            margin-bottom: 4px;
+        }
+        
+        label {
+            display: inline-block;
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 180px;
+            padding: 2px;
+            border: 1px solid #999;
+            font-size: 13px;
+        }
+        
+        input[type="date"] {
+            width: auto;
+            padding: 1px;
+        }
+        
+        input[type="file"] {
+            border: none;
+            font-size: 13px;
+        }
+        
+        .radio-group {
+            display: inline-block;
+        }
+        
+        .radio-group label {
+            margin-right: 8px;
+        }
+        
+        select {
+            width: 186px;
+            height: 22px;
+        }
+        
+        textarea {
+            height: 35px;
+            width: 180px;
+        }
+        
+        .locations-group {
+            display: inline-block;
+        }
+        
+        .locations-group label {
+            margin-right: 12px;
+        }
+        
+        button {
+            padding: 1px 12px;
+            margin-right: 8px;
+            background: #f0f0f0;
+            border: 1px solid #999;
+            font-size: 13px;
+        }
+        
+        label.required:after {
+            content: "*";
+            color: #000;
+        }
+
+        /* Compact spacing for agreement section */
+        fieldset:last-child {
+            margin-bottom: 0;
+        }
+        
+        fieldset:last-child .form-group {
+            margin-bottom: 5px;
+        }
+        
+        /* Adjust button container spacing */
+        .button-container {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        /* Make checkboxes and radio buttons more compact */
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin: 2px 3px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Application Form</h1>
+    <form id="jobApplication">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-group">
+                <label class="required" for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label class="required" for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="required" for="profilePicture">Profile Picture</label>
+                <input type="file" id="profilePicture" name="profilePicture">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div class="form-group">
+                <label class="required" for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label class="required" for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="10-digit number">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="india">India</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Education Background</legend>
+            <div class="form-group">
+                <label for="qualification">Highest Qualification</label>
+                <select id="qualification" name="qualification">
+                    <option value="graduate">Graduate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" id="specialization" name="specialization">
+            </div>
+            <div class="form-group">
+                <label for="graduationYear">Year of Graduation</label>
+                <input type="text" id="graduationYear" name="graduationYear">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Job Preferences</legend>
+            <div class="form-group">
+                <label for="role">Preferred Role</label>
+                <input type="text" id="role" name="role">
+            </div>
+            <div class="form-group">
+                <label for="salary">Expected Salary</label>
+                <input type="text" id="salary" name="salary">
+            </div>
+            <div class="form-group">
+                <label class="locations-label">Preferred Locations</label>
+                <div class="locations-group">
+                    <label><input type="checkbox" name="locations" value="bangalore"> Bangalore</label>
+                    <label><input type="checkbox" name="locations" value="delhi"> Delhi</label>
+                    <label><input type="checkbox" name="locations" value="remote"> Remote</label>
+                    <label><input type="checkbox" name="locations" value="pune"> Pune</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Willing to Relocate?<input type="checkbox" name="relocation"></label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Create Account</legend>
+            <div class="form-group">
+                <label class="required" for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Min 6 characters">
+            </div>
+            <div class="form-group">
+                <label class="required" for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Resume</legend>
+            <div class="form-group">
+                <label class="required" for="resume">Upload Resume (PDF only)</label>
+                <input type="file" id="resume" name="resume" accept=".pdf">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Agreement</legend>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="agreement" required>
+                    <span class="required">I agree to the terms and conditions</span>
+                </label>
+            </div>
+            <div class="button-container">
+                <button type="submit">Submit Application</button>
+                <button type="reset">Reset Form</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
